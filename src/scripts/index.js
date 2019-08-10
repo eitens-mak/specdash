@@ -1,3 +1,3 @@
-import '../styles/index.scss';
+import loader from './parser.js';
 
-console.log('webpack starterkit');
+loader("/public/example.sd.json", $("#root"))
