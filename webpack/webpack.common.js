@@ -5,17 +5,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: Path.resolve(__dirname, '../src/scripts/index.js')
+    specdash: Path.resolve(__dirname, '../src/scripts/index.js')
   },
   output: {
     path: Path.join(__dirname, '../build'),
     filename: 'js/[name].js'
-  },
-  optimization: {
-    splitChunks: {
-      chunks: 'all',
-      name: false
-    }
   },
   plugins: [
     new CleanWebpackPlugin(),
