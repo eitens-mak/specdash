@@ -39,7 +39,7 @@ function createElement(ele) {
 	    return $("<div></div>")
 		.addClass("card")
 		.addClass("float-left")
-		.addClass("shadow p-3 mb-5 bg-white rounded")
+		.addClass("shadow p-2 m-2 bg-white rounded")
 		.append(body)
 		.promise()
 	})
