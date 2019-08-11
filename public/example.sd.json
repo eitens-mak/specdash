@@ -1,0 +1,7 @@
+[
+    {
+	"title": "Sample Vega",
+	"type": "vega",
+	"spec": "/public/line-chart.vg.json"
+    }
+]
