@@ -4,7 +4,8 @@
   "description": "Light weight dashboard based on JSON specs",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "lint": "eslint --fix src"
   },
   "repository": {
     "type": "git",
