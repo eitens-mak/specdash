@@ -1,6 +1,6 @@
 import types from './types.js';
 
-function loader(schemaUrl, rootDiv) {
+export default function loader(schemaUrl, rootDiv) {
     fetch(schemaUrl)
 	.then(resp => resp.json())
 	.then(resp => {
@@ -13,7 +13,7 @@ function loader(schemaUrl, rootDiv) {
 	});
 }
 
-function createElement(ele) {
+export function createElement(ele) {
     let container = $("<div></div>").attr('id', "specdash" + ele.id);
     container.ready(() => {
 	fetch(ele.spec)
@@ -42,5 +42,3 @@ function createElement(ele) {
 	})
 	.catch(console.error);
 }
-
-export default loader;
