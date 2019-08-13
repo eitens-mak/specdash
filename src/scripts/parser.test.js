@@ -7,6 +7,13 @@ it.each([
 	    "type": "vega",
 	    "spec": "/public/line-chart.vg.json"
 	}
+    ],
+    [
+	{
+	    "title": "Example JSON Editor",
+	    "type": "json-editor",
+	    "spec": "/public/basic_person.json"
+	}
     ]
 ])(
     "createElement",
