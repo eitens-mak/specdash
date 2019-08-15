@@ -15,3 +15,5 @@ global.vega = {
 	};
     })
 };
+
+global.JSONEditor = jest.fn();

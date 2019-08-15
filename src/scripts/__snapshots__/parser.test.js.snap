@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`createElement 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Sample Vega</h5><div id=\\"specdashundefined\\"></div></div>"`;
+
+exports[`createElement 2`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Example JSON Editor</h5><div id=\\"specdashundefined\\"></div></div>"`;
