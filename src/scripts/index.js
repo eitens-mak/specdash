@@ -1,3 +1,6 @@
 import loader from './parser.js';
 
-loader("/public/example.sd.json", $("#root"))
+JSONEditor.defaults.options.theme = 'bootstrap2';
+
+
+loader("/public/example.sd.json", $("#root"));

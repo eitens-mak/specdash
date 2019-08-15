@@ -1,4 +1,6 @@
-function loader(schemaUrl, rootDiv) {
+import types from './types.js';
+
+export default function loader(schemaUrl, rootDiv) {
     fetch(schemaUrl)
 	.then(resp => resp.json())
 	.then(resp => {
@@ -11,18 +13,13 @@ function loader(schemaUrl, rootDiv) {
 	});
 }
 
-function createElement(ele) {
-    let container = $("<div></div>").attr('id', "specdash" + ele.id)
+export function createElement(ele) {
+    let container = $("<div></div>").attr('id', "specdash" + ele.id);
     container.ready(() => {
 	fetch(ele.spec)
 	    .then(spec => spec.json())
 	    .then(spec => {
-		return new vega.View(vega.parse(spec))
-		    .logLevel(vega.Warn)
-		    .renderer('canvas')
-		    .initialize('#' + container.attr('id'))
-		    .hover()
-		    .runAsync();
+		return types[ele.type](spec, container.attr('id'));
 	    });
     });
 
@@ -41,10 +38,7 @@ function createElement(ele) {
 		.addClass("float-left")
 		.addClass("shadow p-2 m-2 bg-white rounded")
 		.append(body)
-		.promise()
+		.promise();
 	})
 	.catch(console.error);
 }
-
-export default loader;
-	      

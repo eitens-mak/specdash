@@ -4,7 +4,9 @@
   "description": "Light weight dashboard based on JSON specs",
   "scripts": {
     "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js  --colors",
-    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js"
+    "start": "webpack-dev-server --open --config webpack/webpack.config.dev.js",
+    "lint": "eslint --fix src",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -25,6 +27,7 @@
     "@babel/plugin-proposal-class-properties": "^7.4.0",
     "@babel/plugin-syntax-dynamic-import": "^7.2.0",
     "@babel/preset-env": "^7.4.2",
+    "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.5",
     "clean-webpack-plugin": "^2.0.2",
     "copy-webpack-plugin": "^5.0.3",
@@ -33,10 +36,14 @@
     "eslint-loader": "^2.1.2",
     "file-loader": "^4.0.0",
     "html-webpack-plugin": "^4.0.0-beta.5",
+    "jest": "^24.8.0",
+    "jest-fetch-mock": "^2.1.2",
+    "jquery": "^3.4.1",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "vega": "^5.4.0",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1",
@@ -46,5 +53,10 @@
     "@babel/polyfill": "^7.4.0",
     "bootstrap": "^4.3.1",
     "core-js": "^3.0.1"
+  },
+  "jest": {
+    "setupFiles": [
+      "./src/setup-jest.js"
+    ]
   }
 }
