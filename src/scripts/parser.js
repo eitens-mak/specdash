@@ -19,7 +19,7 @@ export function createElement(ele) {
 	fetch(ele.spec)
 	    .then(spec => spec.json())
 	    .then(spec => {
-		return types[ele.type](spec, container.attr('id'));
+		return types[ele.type](spec, container.attr('id'), ele.post);
 	    });
     });
 

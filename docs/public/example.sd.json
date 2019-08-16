@@ -12,6 +12,7 @@
     {
 	"title": "Example JSON Editor",
 	"type": "json-editor",
-	"spec": "public/basic_person.json"
+	"spec": "public/basic_person.json",
+	"post": "https://httpbin.org/post"
     }
 ]
