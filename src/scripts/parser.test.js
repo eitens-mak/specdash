@@ -6,10 +6,10 @@ fs.readdirSync("./public/").forEach(fname => {
 	describe(fname, () => {
 	    it.each(
 		require("../../public/" + fname)
-		    .map(ele => [ele])
+		    .map(ele => [ele.title, ele])
 	    )(
-		"createElement",
-		(ele) => {
+		"createElement('%s')",
+		(title, ele) => {
 		    fetch.mockResponseOnce(
 			JSON.stringify(require('../../' + ele.spec))
 		    );
