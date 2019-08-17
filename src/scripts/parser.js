@@ -16,11 +16,15 @@ export default function loader(schemaUrl, rootDiv) {
 export function createElement(ele) {
     let container = $("<div></div>").attr('id', "specdash" + ele.id);
     container.ready(() => {
-	fetch(ele.spec)
-	    .then(spec => spec.json())
-	    .then(spec => {
-		return types[ele.type](spec, container.attr('id'), ele.post);
-	    });
+	if (typeof ele.spec == 'string') {
+	    fetch(ele.spec)
+		.then(spec => spec.json())
+		.then(spec => {
+		    return types[ele.type](spec, container.attr('id'), ele.post);
+		});
+	} else {
+	    types[ele.type](spec, container.attr('id'), ele.post);
+	}
     });
 
     return $("<div></div>")
