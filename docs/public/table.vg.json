@@ -1,0 +1,98 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v5.json",
+  "autosize": "pad",
+  "padding": 5,
+  "style": "cell",
+  "data": [
+    {
+      "name": "issues",
+      "url": "https://api.github.com/repos/eitens-mak/specdash/issues",
+      "format": {"type": "json", "parse": {}},
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "datum[\"user\"] && datum[\"user\"][\"login\"]",
+          "as": "user.login"
+        },
+        {
+          "type": "aggregate",
+          "groupby": ["state", "user.login"],
+          "ops": ["count"],
+          "fields": [null],
+          "as": ["total"]
+        }
+      ]
+    }
+  ],
+  "signals": [
+    {"name": "x_step", "value": 90},
+    {
+      "name": "width",
+      "update": "bandspace(domain('x').length, 1, 0.5) * x_step"
+    },
+    {"name": "y_step", "value": 20},
+    {
+      "name": "height",
+      "update": "bandspace(domain('y').length, 1, 0.5) * y_step"
+    }
+  ],
+  "marks": [
+    {
+      "name": "layer_0_marks",
+      "type": "text",
+      "style": ["text"],
+      "from": {"data": "issues"},
+      "encode": {
+        "update": {
+          "fill": {"value": "black"},
+          "tooltip": {
+            "signal": "{\"state\": ''+datum[\"state\"], \"user.login\": ''+datum[\"user.login\"], \"total\": format(datum[\"total\"], \"\")}"
+          },
+          "x": {"scale": "x", "field": "user\\.login"},
+          "y": {"scale": "y", "field": "state"},
+          "text": {"signal": "format(datum[\"total\"], \"\")"},
+          "align": {"value": "center"},
+          "baseline": {"value": "middle"}
+        }
+      }
+    }
+  ],
+  "scales": [
+    {
+      "name": "x",
+      "type": "point",
+      "domain": {"data": "issues", "field": "user\\.login", "sort": true},
+      "range": {"step": {"signal": "x_step"}},
+      "padding": 0.5
+    },
+    {
+      "name": "y",
+      "type": "point",
+      "domain": {"data": "issues", "field": "state", "sort": true},
+      "range": {"step": {"signal": "y_step"}},
+      "padding": 0.5
+    }
+  ],
+  "axes": [
+    {
+      "scale": "x",
+      "orient": "bottom",
+      "grid": false,
+      "title": "user.login",
+      "labelAlign": "right",
+      "labelAngle": 270,
+      "labelBaseline": "middle",
+      "labelOverlap": true,
+      "zindex": 1
+    },
+    {
+      "scale": "y",
+      "orient": "left",
+      "grid": false,
+      "title": "state",
+      "labelOverlap": true,
+      "zindex": 1
+    }
+  ]
+}
+

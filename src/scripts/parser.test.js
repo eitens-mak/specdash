@@ -10,10 +10,13 @@ fs.readdirSync("./public/").forEach(fname => {
 	    )(
 		"createElement('%s')",
 		(title, ele) => {
-		    fetch.mockResponseOnce(
-			JSON.stringify(require('../../' + ele.spec))
-		    );
+		    if (typeof ele.spec === 'string') {
+			fetch.mockResponseOnce(
+			    JSON.stringify(require('../../' + ele.spec))
+			);
+		    }
 
+		    ele.id = 0;
 		    return createElement(ele).then(card => {
 			expect(card.html()).toMatchSnapshot();
 		    });  

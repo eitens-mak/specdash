@@ -1,0 +1,11 @@
+{
+    "title": "Comment",
+    "type": "object",
+    "id": "comment",
+    "properties": {
+	"body": {
+	    "type": "string",
+	    "description": "Body of comment"
+	}
+    }
+}
