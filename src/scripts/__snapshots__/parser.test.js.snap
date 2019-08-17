@@ -1,5 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`createElement 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Sample Vega</h5><div id=\\"specdashundefined\\"></div></div>"`;
+exports[`example.sd.json createElement('Example JSON Editor') 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Example JSON Editor</h5><div id=\\"specdash0\\"></div></div>"`;
 
-exports[`createElement 2`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Example JSON Editor</h5><div id=\\"specdashundefined\\"></div></div>"`;
+exports[`example.sd.json createElement('More Vega') 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">More Vega</h5><div id=\\"specdash0\\"></div></div>"`;
+
+exports[`example.sd.json createElement('Sample Vega') 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Sample Vega</h5><div id=\\"specdash0\\"></div></div>"`;
+
+exports[`github.sd.json createElement('Add a comment') 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">Add a comment</h5><div id=\\"specdash0\\"></div></div>"`;
+
+exports[`github.sd.json createElement('SpecDash Issues') 1`] = `"<div class=\\"card-body\\"><h5 class=\\"card-title\\">SpecDash Issues</h5><div id=\\"specdash0\\"></div></div>"`;

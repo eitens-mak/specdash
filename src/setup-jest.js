@@ -16,4 +16,7 @@ global.vega = {
     })
 };
 
-global.JSONEditor = jest.fn();
+global.JSONEditor =
+    jest.fn().mockImplementation(() => {
+	return {on: jest.fn()};
+    });
