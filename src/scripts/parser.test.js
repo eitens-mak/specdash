@@ -1,31 +1,24 @@
 import { createElement } from './parser.js';
+import fs from 'fs';
 
-it.each([
-    [
-	{
-	    "title": "Sample Vega",
-	    "type": "vega",
-	    "spec": "public/line-chart.vg.json"
-	}
-    ],
-    [
-	{
-	    "title": "Example JSON Editor",
-	    "type": "json-editor",
-	    "spec": "public/basic_person.json"
-	}
-    ]
-])(
-    "createElement",
-    (ele) => {
-	fetch.mockResponseOnce(
-	    JSON.stringify(require('../../' + ele.spec))
-	);
+fs.readdirSync("./public/").forEach(fname => {
+    if (fname.includes(".sd.json")) {
+	describe(fname, () => {
+	    it.each(
+		require("../../public/" + fname)
+		    .map(ele => [ele])
+	    )(
+		"createElement",
+		(ele) => {
+		    fetch.mockResponseOnce(
+			JSON.stringify(require('../../' + ele.spec))
+		    );
 
-	return createElement(ele).then(card => {
-	    expect(card.html()).toMatchSnapshot();
-	});  
-    },
-)
-
-it.each
+		    return createElement(ele).then(card => {
+			expect(card.html()).toMatchSnapshot();
+		    });  
+		}
+	    )
+	});
+    }
+});

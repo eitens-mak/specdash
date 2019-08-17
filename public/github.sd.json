@@ -7,7 +7,17 @@
     {
 	"title": "Add a comment",
 	"type": "json-editor",
-	"spec": "public/comment.je.json",
+	"spec": {
+	    "title": "Comment",
+	    "type": "object",
+	    "id": "comment",
+	    "properties": {
+		"body": {
+		    "type": "string",
+		    "description": "Body of comment"
+		}
+	    }
+	},
 	"post": "https://api.github.com/repos/eitens-mak/specdash/issues/11/comments"
     }		
 ]
